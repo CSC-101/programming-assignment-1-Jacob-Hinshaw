@@ -18,15 +18,23 @@ class TestCases(unittest.TestCase):
         result = hw1.vowel_count(input)
         expected = 3
         self.assertEqual(expected, result)
-    def test21_vowel_count(self):
+    def test2_vowel_count(self):
         input = "Vowels Are Cool"
         result = hw1.vowel_count(input)
         expected = 6
         self.assertEqual(expected, result)
 
     # Part 2
-
-
+    def test1_short_lists(self):
+        input = [[1], [2,3], [4,5,6], [7,8,9], [10,11], [12]]
+        result = hw1.short_lists(input)
+        expected = [[2,3], [10,11]]
+        self.assertEqual(expected, result)
+    def test1_short_lists(self):
+        input = [[10], [9,8,7,6,5,4], [3,2], [1]]
+        result = hw1.short_lists(input)
+        expected = [[3,2]]
+        self.assertEqual(expected, result)
 
     # Part 3
 

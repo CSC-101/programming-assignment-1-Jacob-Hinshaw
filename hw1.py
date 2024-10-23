@@ -12,13 +12,12 @@ def vowel_count(word:str) -> int:    # A string is inputted, the number of vowel
     return count
 
 # Part 2
-#def short_lists(long:list[list[int]]) -> :
-
-obj1 = 5
-list2 = [obj1]
-list1 = [list2]
-
-print(len(list1))
+def short_lists(long:list[list[int]]) -> list[list[int]]: # This code takes a list of lists of integers and
+    result_list = []                                      # returns a list of lists of integers that only have
+    for group in long:                                    # 2 integers in them
+        if len(group) == 2:
+            result_list.append(group)
+    return result_list
 
 # Part 3
 
