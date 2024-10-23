@@ -22,7 +22,6 @@ def short_lists(long:list[list[int]]) -> list[list[int]]: # This code takes a li
 # Part 3
 
 
-
 # Part 4
 
 
