@@ -20,13 +20,38 @@ def short_lists(long:list[list[int]]) -> list[list[int]]: # This code takes a li
     return result_list
 
 # Part 3
-
+# This code takes a list of lists of integers and returns a new list of lists of integers which all internal
+# lists which only have two numbers will be organized from smallest to largest.
+def ascending_pairs(input_list:list[list[int]]) -> list[list[int]]:
+    result_list = []
+    for sub_list in input_list:
+        if len(sub_list) == 2:
+            if sub_list[0] <= sub_list[1]:
+                result_list.append(sub_list)
+            else:
+                result_list.append([sub_list[1], sub_list[0]])
+        else:
+            result_list.append(sub_list)
+    return result_list
 
 # Part 4
-
+# This code takes two prices of the Price class and adds them together, then converts cents over 100 to dollars
+# and then returns it as a Price class.
+def add_prices(price1:data.Price, price2:data.Price) -> data.Price:
+    price3 = data.Price(0,0)
+    price3.dollars = price1.dollars + price2.dollars
+    price3.cents = price1.cents + price2.cents
+    while price3.cents > 99:
+        price3.dollars += 1
+        price3.cents -= 100
+    return price3
 
 # Part 5
-
+# This function takes an input of class Rectangle and calculates the rectangles area and returns it as a float.
+def rectangle_area(rect:data.Rectangle) -> float:
+    x_length = abs(rect.top_left.x - rect.bottom_right.x)
+    y_length = abs(rect.top_left.y - rect.bottom_right.y)
+    return x_length * y_length
 
 # Part 6
 

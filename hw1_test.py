@@ -37,13 +37,42 @@ class TestCases(unittest.TestCase):
         self.assertEqual(expected, result)
 
     # Part 3
-
+    def test1_ascending_pairs(self):
+        input = [[1], [3,2], [4,5,6], [7,8], [9]]
+        result = hw1.ascending_pairs(input)
+        expected = [[1], [2,3], [4,5,6], [7,8], [9]]
+        self.assertEqual(expected, result)
+    def test2_ascending_pairs(self):
+        input = [[9], [1,1], [3,1,6], [8,7], [12]]
+        result = hw1.ascending_pairs(input)
+        expected = [[9], [1,1], [3,1,6], [7,8], [12]]
+        self.assertEqual(expected, result)
 
     # Part 4
-
+    def test1_add_prices(self):
+        input1 = data.Price(2,60)
+        input2 = data.Price(3, 75)
+        result = hw1.add_prices(input1, input2)
+        expected = data.Price(6, 35)
+        self.assertEqual(expected, result)
+    def test2_add_prices(self):
+        input1 = data.Price(1,30)
+        input2 = data.Price(2, 20)
+        result = hw1.add_prices(input1, input2)
+        expected = data.Price(3, 50)
+        self.assertEqual(expected, result)
 
     # Part 5
-
+    def test1_rectangle_area(self):
+        input1 = data.Rectangle(data.Point(0,0), data.Point(2,2))
+        result = hw1.rectangle_area(input1)
+        expected = 4
+        self.assertEqual(expected, result)
+    def test2_rectangle_area(self):
+        input1 = data.Rectangle(data.Point(-5,-5), data.Point(2,2))
+        result = hw1.rectangle_area(input1)
+        expected = 49
+        self.assertEqual(expected, result)
 
     # Part 6
 
