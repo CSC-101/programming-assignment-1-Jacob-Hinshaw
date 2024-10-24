@@ -2,6 +2,9 @@ import data
 import hw1
 import unittest
 
+from data import Employee
+from hw1 import books_by_author
+
 
 #def test_first_element_1(self):
 #    input = [[1, 2], [3, 4]]
@@ -75,15 +78,46 @@ class TestCases(unittest.TestCase):
         self.assertEqual(expected, result)
 
     # Part 6
-
+    def test1_books_by_author(self):
+        input1 = "Sophia"
+        input2 = [data.Book(["Sophia", "Jacob"], "Fish"),
+                  data.Book(["Jacob"], "Unicycle"), data.Book(["Sophia"], "Flute")]
+        result = hw1.books_by_author(input1, input2)
+        expected = [data.Book(["Sophia", "Jacob"],"Fish"), data.Book(["Sophia"], "Flute")]
+        self.assertEqual(expected, result)
+    def test2_books_by_author(self):
+        input1 = "Jacob"
+        input2 = [data.Book(["Sophia", "Jacob"], "Fish"),
+                  data.Book(["Jacob"], "Unicycle"), data.Book(["Sophia"], "Flute")]
+        result = hw1.books_by_author(input1, input2)
+        expected = [data.Book(["Sophia", "Jacob"],"Fish"), data.Book(["Jacob"], "Unicycle")]
+        self.assertEqual(expected, result)
 
     # Part 7
-
+    def test1_circle_bound(self):
+        input1 = data.Rectangle(data.Point(0,0),data.Point(4,2))
+        result = hw1.circle_bound(input1)
+        expected = data.Circle(data.Point(2,1), 5**(1/2))
+        self.assertEqual(expected, result)
+    def test2_circle_bound(self):
+        input1 = data.Rectangle(data.Point(-3,5),data.Point(1,1))
+        result = hw1.circle_bound(input1)
+        expected = data.Circle(data.Point(-1,3), 8**(1/2))
+        self.assertEqual(expected, result)
 
     # Part 8
-
-
-
+    def test1_below_pay_average(self):
+        input1 = [Employee("Jacob",20),Employee("Sophia", 30),
+                  Employee("Travis", 15), Employee("Dylan", 10)]
+        result = hw1.below_pay_average(input1)
+        expected = ["Travis", "Dylan"]
+        self.assertEqual(expected, result)
+    def test2_below_pay_average(self):
+        input1 = [Employee("Jacob",10),Employee("Sophia", 10),
+                  Employee("Travis", 10)]
+        result = hw1.below_pay_average(input1)
+        expected = []
+        self.assertEqual(expected, result)
 
 if __name__ == '__main__':
     unittest.main()

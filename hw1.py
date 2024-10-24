@@ -54,11 +54,33 @@ def rectangle_area(rect:data.Rectangle) -> float:
     return x_length * y_length
 
 # Part 6
-
+# This function takes an author as a string and a list of class type Books and returns a list of class type
+# Books, but only the ones with the inputted author.
+def books_by_author(author:str, books:list[data.Book]):
+    new_books = []
+    for book in books:
+        for book_author in book.authors:
+            if book_author == author:
+                new_books.append(book)
+    return new_books
 
 # Part 7
-
+# this function takes a input of class type Rectangle and give the output of class type Circle which is the
+# smallest bounding circle for the given rectangle.
+def circle_bound(rect:data.Rectangle) -> data.Circle:
+    x_center = (rect.top_left.x+rect.bottom_right.x)/2
+    y_center = (rect.top_left.y+rect.bottom_right.y)/2
+    radius = (((rect.top_left.x-rect.bottom_right.x)/2)**2 + ((rect.top_left.y-rect.bottom_right.y)/2)**2)**(1/2)
+    center = data.Point(x_center, y_center)
+    return data.Circle(center,radius)
 
 # Part 8
-
-
+# This function takes a list of class type Employees and calculates the average pay rate, it then returns
+# a list of names of any employee who's pay is below average of employees in the original list.
+def below_pay_average(all:list[data.Employee]) -> list[str]:
+    avg_pay_rate = sum(employee.pay_rate for employee in all) / len(all)
+    low = []
+    for employee in all:
+        if employee.pay_rate < avg_pay_rate:
+            low.append(employee.name)
+    return low
